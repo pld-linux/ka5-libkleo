@@ -1,16 +1,16 @@
-%define		kdeappsver	20.12.3
+%define		kdeappsver	21.04.0
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		libkleo
 Summary:	Kleo library
 Summary(pl.UTF-8):	Biblioteka kleo
 Name:		ka5-%{kaname}
-Version:	20.12.3
+Version:	21.04.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	dd2f28c8c27d7e370c82c5cdf5ca0963
+# Source0-md5:	44ce53d9e20538453c149b6ca0ce6ed4
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Widgets-devel
@@ -76,7 +76,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 /etc/xdg/libkleopatrarc
-%attr(755,root,root) %ghost %{_libdir}/libKF5Libkleo.so.5
+%ghost %{_libdir}/libKF5Libkleo.so.5
 %attr(755,root,root) %{_libdir}/libKF5Libkleo.so.5.*.*
 %dir %{_datadir}/libkleopatra
 %dir %{_datadir}/libkleopatra/pics
@@ -101,5 +101,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/KF5/libkleo
 %{_includedir}/KF5/libkleo_version.h
 %{_libdir}/cmake/KF5Libkleo
-%attr(755,root,root) %{_libdir}/libKF5Libkleo.so
+%{_libdir}/libKF5Libkleo.so
 %{_libdir}/qt5/mkspecs/modules/qt_Libkleo.pri
