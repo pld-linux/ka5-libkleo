@@ -9,7 +9,7 @@ Summary:	Kleo library
 Summary(pl.UTF-8):	Biblioteka kleo
 Name:		ka5-%{kaname}
 Version:	22.12.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -73,6 +73,9 @@ ctest
 %install
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
+
+# not supported by glibc yet
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
 
 %find_lang %{kaname} --all-name --with-kde
 
