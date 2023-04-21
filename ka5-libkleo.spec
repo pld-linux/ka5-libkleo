@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	22.12.3
+%define		kdeappsver	23.04.0
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		libkleo
 Summary:	Kleo library
 Summary(pl.UTF-8):	Biblioteka kleo
 Name:		ka5-%{kaname}
-Version:	22.12.3
-Release:	2
+Version:	23.04.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	cd2421c4ce57933c7b66beaa156e665b
+# Source0-md5:	ecf559112a282eaa3dd57e444ccd32f9
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Widgets-devel
@@ -88,8 +88,6 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{kaname}.lang
 %defattr(644,root,root,755)
 /etc/xdg/libkleopatrarc
-%ghost %{_libdir}/libKF5Libkleo.so.5
-%attr(755,root,root) %{_libdir}/libKF5Libkleo.so.5.*.*
 %dir %{_datadir}/libkleopatra
 %dir %{_datadir}/libkleopatra/pics
 %{_datadir}/libkleopatra/pics/chiasmus_chi.png
@@ -106,10 +104,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/libkleopatra/pics/smartcard.xpm
 %{_datadir}/qlogging-categories5/libkleo.categories
 %{_datadir}/qlogging-categories5/libkleo.renamecategories
+%ghost %{_libdir}/libKPim5Libkleo.so.5
+%attr(755,root,root) %{_libdir}/libKPim5Libkleo.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KF5/Libkleo
 %{_libdir}/cmake/KF5Libkleo
-%{_libdir}/libKF5Libkleo.so
 %{_libdir}/qt5/mkspecs/modules/qt_Libkleo.pri
+%{_includedir}/KPim5/Libkleo
+%{_libdir}/cmake/KPim5Libkleo
+%{_libdir}/libKPim5Libkleo.so
