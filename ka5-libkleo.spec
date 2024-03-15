@@ -1,35 +1,35 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		libkleo
 Summary:	Kleo library
 Summary(pl.UTF-8):	Biblioteka kleo
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	d642576816cef703c957334db50cc096
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	1f2099a5afad705f51228fcfd737b0cd
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Gui-devel >= 5.11.1
-BuildRequires:	Qt6Widgets-devel
+BuildRequires:	Qt5Gui-devel >= 5.11.1
+BuildRequires:	Qt5Widgets-devel
 BuildRequires:	boost-devel >= 1.34.0
 BuildRequires:	gettext-devel
-BuildRequires:	gpgme-qt6-devel >= 1:1.23.2
+BuildRequires:	gpgme-qt5-devel >= 1.8.0
 BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcodecs-devel >= %{kframever}
-BuildRequires:	kf6-kcompletion-devel >= %{kframever}
-BuildRequires:	kf6-kconfig-devel >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kitemmodels-devel >= %{kframever}
-BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
-BuildRequires:	kf6-kwindowsystem-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcodecs-devel >= %{kframever}
+BuildRequires:	kf5-kcompletion-devel >= %{kframever}
+BuildRequires:	kf5-kconfig-devel >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kitemmodels-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf5-kwindowsystem-devel >= %{kframever}
 BuildRequires:	ninja
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -100,13 +100,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/libkleopatra/pics/key_ok.png
 %{_datadir}/libkleopatra/pics/key_unknown.png
 %{_datadir}/libkleopatra/pics/smartcard.xpm
-%{_datadir}/qlogging-categories6/libkleo.categories
-%{_datadir}/qlogging-categories6/libkleo.renamecategories
-%attr(755,root,root) %{_libdir}/libKPim6Libkleo.so.*.*
-%ghost %{_libdir}/libKPim6Libkleo.so.6
+%{_datadir}/qlogging-categories5/libkleo.categories
+%{_datadir}/qlogging-categories5/libkleo.renamecategories
+%ghost %{_libdir}/libKPim5Libkleo.so.5
+%attr(755,root,root) %{_libdir}/libKPim5Libkleo.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/KPim6/Libkleo
-%{_libdir}/cmake/KPim6Libkleo
-%{_libdir}/libKPim6Libkleo.so
+%{_libdir}/cmake/KF5Libkleo
+%{_libdir}/qt5/mkspecs/modules/qt_Libkleo.pri
+%{_includedir}/KPim5/Libkleo
+%{_libdir}/cmake/KPim5Libkleo
+%{_libdir}/libKPim5Libkleo.so
