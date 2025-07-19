@@ -19,7 +19,6 @@ BuildRequires:	Qt5Gui-devel >= 5.11.1
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	boost-devel >= 1.34.0
 BuildRequires:	gettext-devel
-BuildRequires:	gpgme-qt5-devel >= 1.8.0
 BuildRequires:	ka5-kpimtextedit-devel >= %{kdeappsver}
 BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
 BuildRequires:	kf5-kcodecs-devel >= %{kframever}
@@ -31,6 +30,7 @@ BuildRequires:	kf5-kitemmodels-devel >= %{kframever}
 BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	kf5-kwindowsystem-devel >= %{kframever}
 BuildRequires:	ninja
+BuildRequires:	qgpgme-qt5-devel >= 1.8.0
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
